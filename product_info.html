@@ -16,15 +16,21 @@
     overflow: auto; background-color: rgba(0,0,0,0.8);
   }
   .modal-content {
-    margin: auto; display: block; width: 300px; max-width: 90%; text-align: center; /* ← 這裡加 text-align:center */
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 水平置中 */
+    width: auto;         /* 自動寬度，不強制300px */
+    max-width: 90%;
   }
   .modal-content img {
     width: 100%; margin-bottom: 10px;
   }
   .modal-content img.barcode {
-    width: 200%; /* Barcode放大兩倍 */
+    width: 200%; /* 放大兩倍 */
+    max-width: none; /* 不限制最大寬度 */
     display: block;
-    margin: 10px auto; /* ← 加這行，強制圖片置中 */
+    margin: 10px auto;
   }
   .close {
     position: absolute; top: 15px; right: 35px; color: white;
