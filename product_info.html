@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>產品資訊</title>
 <style>
-  body { font-size: 150%; } /* 字體放大 150% */
+  body { font-size: 150%; }
   table { border-collapse: collapse; width: 100%; }
   th, td { border: 1px solid #ddd; padding: 8px; text-align: center; vertical-align: middle; }
   th { background-color: #f2f2f2; }
@@ -26,8 +26,8 @@
     text-align: center;
   }
   .modal-content img.qrcode {
-    width: auto;  /* QRCODE 保持原尺寸 */
-    max-width: 300px; /* 防止太大超出 */
+    transform: scale(1.5); /* QRCODE放大1.5倍 */
+    transform-origin: center;
     display: block;
     margin: 0 auto 20px auto;
   }
@@ -36,9 +36,9 @@
     padding: 0 20px; /* 左右留白20px */
   }
   .barcode-wrapper img.barcode {
-    width: 200%; /* Barcode放大2倍 */
-    max-width: none;
-    height: auto;
+    transform: scale(1.5); /* Barcode放大1.5倍 */
+    transform-origin: left center;
+    display: block;
   }
   .close {
     position: absolute; top: 15px; right: 35px; color: white;
