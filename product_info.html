@@ -22,7 +22,10 @@
     width: 100%; margin-bottom: 10px;
   }
   .modal-content img.barcode {
-    width: 150%; /* Barcode放大到2倍寬 */
+    width: 250%;          /* ✅ 放大2.5倍 */
+    max-width: none;       /* ✅ 不受限制 */
+    margin: 10px 20px;     /* ✅ 上下10px，左右20px */
+    display: block;        /* ✅ block才能正確排版 */
   }
   .close {
     position: absolute; top: 15px; right: 35px; color: white;
