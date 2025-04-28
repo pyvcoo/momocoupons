@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<title>產品資訊</title>
+<style>
+  table { border-collapse: collapse; width: 100%; }
+  th, td { border: 1px solid #ddd; padding: 8px; text-align: center; vertical-align: middle; }
+  th { background-color: #f2f2f2; }
+  img { width: 100px; cursor: pointer; transition: transform .2s; }
+  tr.highlight { background-color: #ffff99; }
+  .modal {
+    display: none; position: fixed; z-index: 999;
+    padding-top: 60px; left: 0; top: 0; width: 100%; height: 100%;
+    overflow: auto; background-color: rgba(0,0,0,0.8);
+  }
+  .modal-content {
+    margin: auto; display: block; width: 300px; max-width: 90%;
+  }
+  .modal-content img {
+    width: 100%; margin-bottom: 10px;
+  }
+  .close {
+    position: absolute; top: 15px; right: 35px; color: white;
+    font-size: 40px; font-weight: bold; cursor: pointer;
+  }
+</style>
+</head>
+<body>
+<h1>MOMO電子票券</h1>
+<table>
+<tr>
+<th>產品編號</th>
+<th>商品名稱</th>
+<th>購買日期</th>
+<th>兌換期限</th>
+<th>票券序號</th>
+<th>QRCode/Barcode</th>
+</tr><tr id="row0">
+<td>11920158</td>
+<td>【Mister Donut】一入甜甜圈(好禮即享券) (y953.txt)</td>
+<td>2025/02/02</td>
+<td>2025/05/02</td>
+<td>1395675426</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=1395675426&type=1" onclick="openModal(0)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=1395675426&type=0" onclick="openModal(0)" alt="Barcode">
+  <div id="modal0" class="modal">
+    <span class="close" onclick="closeModal(0)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=1395675426&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=1395675426&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row1">
+<td>11698622</td>
+<td>【天仁喫茶趣】TOGO50元飲品(好禮即享券) (zc318440.txt)</td>
+<td>2025/02/02</td>
+<td>2025/05/02</td>
+<td>91714195195</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=91714195195&type=1" onclick="openModal(1)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=91714195195&type=0" onclick="openModal(1)" alt="Barcode">
+  <div id="modal1" class="modal">
+    <span class="close" onclick="closeModal(1)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=91714195195&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=91714195195&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row2">
+<td>12540161</td>
+<td>【肯德基】香酥脆薯好禮即享券(小) (q716.txt)</td>
+<td>2025/02/02</td>
+<td>2025/05/02</td>
+<td>VKSP5673730192018982</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=VKSP5673730192018982&type=1" onclick="openModal(2)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=VKSP5673730192018982&type=0" onclick="openModal(2)" alt="Barcode">
+  <div id="modal2" class="modal">
+    <span class="close" onclick="closeModal(2)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=VKSP5673730192018982&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=VKSP5673730192018982&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row3">
+<td>12875746</td>
+<td>【85度C】4/30偷殺!35元飲品(好禮即享券) (t811.txt)</td>
+<td>2025/02/05</td>
+<td>2025/05/05</td>
+<td>E1081524031029846403</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1081524031029846403&type=1" onclick="openModal(3)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1081524031029846403&type=0" onclick="openModal(3)" alt="Barcode">
+  <div id="modal3" class="modal">
+    <span class="close" onclick="closeModal(3)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1081524031029846403&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1081524031029846403&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row4">
+<td>11698622</td>
+<td>【天仁喫茶趣】TOGO50元飲品(好禮即享券) (m454.txt)</td>
+<td>2025/02/05</td>
+<td>2025/05/05</td>
+<td>91813588644</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=91813588644&type=1" onclick="openModal(4)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=91813588644&type=0" onclick="openModal(4)" alt="Barcode">
+  <div id="modal4" class="modal">
+    <span class="close" onclick="closeModal(4)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=91813588644&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=91813588644&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row5">
+<td>11698622</td>
+<td>【天仁喫茶趣】TOGO50元飲品(好禮即享券) (zb218440.txt)</td>
+<td>2025/02/05</td>
+<td>2025/05/05</td>
+<td>91559530901</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=91559530901&type=1" onclick="openModal(5)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=91559530901&type=0" onclick="openModal(5)" alt="Barcode">
+  <div id="modal5" class="modal">
+    <span class="close" onclick="closeModal(5)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=91559530901&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=91559530901&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row6">
+<td>11698622</td>
+<td>【天仁喫茶趣】TOGO50元飲品(好禮即享券) (l449.txt)</td>
+<td>2025/02/05</td>
+<td>2025/05/05</td>
+<td>91578267704</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=91578267704&type=1" onclick="openModal(6)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=91578267704&type=0" onclick="openModal(6)" alt="Barcode">
+  <div id="modal6" class="modal">
+    <span class="close" onclick="closeModal(6)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=91578267704&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=91578267704&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row7">
+<td>11698622</td>
+<td>【天仁喫茶趣】TOGO50元飲品(好禮即享券) (q716.txt)</td>
+<td>2025/02/05</td>
+<td>2025/05/05</td>
+<td>91931148831</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=91931148831&type=1" onclick="openModal(7)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=91931148831&type=0" onclick="openModal(7)" alt="Barcode">
+  <div id="modal7" class="modal">
+    <span class="close" onclick="closeModal(7)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=91931148831&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=91931148831&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row8">
+<td>11698622</td>
+<td>【天仁喫茶趣】TOGO50元飲品(好禮即享券) (e167.txt)</td>
+<td>2025/02/05</td>
+<td>2025/05/05</td>
+<td>91718857064</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=91718857064&type=1" onclick="openModal(8)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=91718857064&type=0" onclick="openModal(8)" alt="Barcode">
+  <div id="modal8" class="modal">
+    <span class="close" onclick="closeModal(8)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=91718857064&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=91718857064&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row9">
+<td>11698628</td>
+<td>【天仁喫茶趣】TOGO70元飲品(好禮即享券) (j440.txt)</td>
+<td>2025/02/05</td>
+<td>2025/05/05</td>
+<td>91040271363</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=91040271363&type=1" onclick="openModal(9)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=91040271363&type=0" onclick="openModal(9)" alt="Barcode">
+  <div id="modal9" class="modal">
+    <span class="close" onclick="closeModal(9)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=91040271363&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=91040271363&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row10">
+<td>11698603</td>
+<td>【天仁喫茶趣】TOGO90元飲品(好禮即享券) (n534.txt)</td>
+<td>2025/02/05</td>
+<td>2025/05/05</td>
+<td>91052253244</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=91052253244&type=1" onclick="openModal(10)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=91052253244&type=0" onclick="openModal(10)" alt="Barcode">
+  <div id="modal10" class="modal">
+    <span class="close" onclick="closeModal(10)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=91052253244&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=91052253244&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row11">
+<td>12540161</td>
+<td>【肯德基】香酥脆薯好禮即享券(小) (a035.txt)</td>
+<td>2025/02/05</td>
+<td>2025/05/05</td>
+<td>VKSP0029756679382890</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=VKSP0029756679382890&type=1" onclick="openModal(11)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=VKSP0029756679382890&type=0" onclick="openModal(11)" alt="Barcode">
+  <div id="modal11" class="modal">
+    <span class="close" onclick="closeModal(11)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=VKSP0029756679382890&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=VKSP0029756679382890&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row12">
+<td>12540161</td>
+<td>【肯德基】香酥脆薯好禮即享券(小) (u822.txt)</td>
+<td>2025/02/05</td>
+<td>2025/05/05</td>
+<td>VKSP3241522064132428</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=VKSP3241522064132428&type=1" onclick="openModal(12)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=VKSP3241522064132428&type=0" onclick="openModal(12)" alt="Barcode">
+  <div id="modal12" class="modal">
+    <span class="close" onclick="closeModal(12)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=VKSP3241522064132428&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=VKSP3241522064132428&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row13">
+<td>12540161</td>
+<td>【肯德基】香酥脆薯好禮即享券(小) (h414.txt)</td>
+<td>2025/02/09</td>
+<td>2025/05/09</td>
+<td>VKSP8138373177740443</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=VKSP8138373177740443&type=1" onclick="openModal(13)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=VKSP8138373177740443&type=0" onclick="openModal(13)" alt="Barcode">
+  <div id="modal13" class="modal">
+    <span class="close" onclick="closeModal(13)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=VKSP8138373177740443&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=VKSP8138373177740443&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row14">
+<td>12540036</td>
+<td>【21風味館】9384蜂蜜綠買一送一(好禮即享券) (e167.txt)</td>
+<td>2025/02/14</td>
+<td>2025/05/14</td>
+<td>E343753229</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E343753229&type=1" onclick="openModal(14)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E343753229&type=0" onclick="openModal(14)" alt="Barcode">
+  <div id="modal14" class="modal">
+    <span class="close" onclick="closeModal(14)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E343753229&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E343753229&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row15">
+<td>12875746</td>
+<td>【85度C】4/30偷殺!35元飲品(好禮即享券) (f300.txt)</td>
+<td>2025/02/14</td>
+<td>2025/05/14</td>
+<td>E1089725799102087065</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1089725799102087065&type=1" onclick="openModal(15)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1089725799102087065&type=0" onclick="openModal(15)" alt="Barcode">
+  <div id="modal15" class="modal">
+    <span class="close" onclick="closeModal(15)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1089725799102087065&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1089725799102087065&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row16">
+<td>12875746</td>
+<td>【85度C】4/30偷殺!35元飲品(好禮即享券) (zc318440.txt)</td>
+<td>2025/02/14</td>
+<td>2025/05/14</td>
+<td>E1082549248070593386</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1082549248070593386&type=1" onclick="openModal(16)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1082549248070593386&type=0" onclick="openModal(16)" alt="Barcode">
+  <div id="modal16" class="modal">
+    <span class="close" onclick="closeModal(16)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1082549248070593386&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1082549248070593386&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row17">
+<td>11698622</td>
+<td>【天仁喫茶趣】TOGO50元飲品(好禮即享券) (y953.txt)</td>
+<td>2025/02/14</td>
+<td>2025/05/14</td>
+<td>91009490946</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=91009490946&type=1" onclick="openModal(17)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=91009490946&type=0" onclick="openModal(17)" alt="Barcode">
+  <div id="modal17" class="modal">
+    <span class="close" onclick="closeModal(17)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=91009490946&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=91009490946&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row18">
+<td>12540036</td>
+<td>【21風味館】9384蜂蜜綠買一送一(好禮即享券) (z2771.txt)</td>
+<td>2025/02/22</td>
+<td>2025/05/22</td>
+<td>E052803716</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E052803716&type=1" onclick="openModal(18)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E052803716&type=0" onclick="openModal(18)" alt="Barcode">
+  <div id="modal18" class="modal">
+    <span class="close" onclick="closeModal(18)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E052803716&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E052803716&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row19">
+<td>11698595</td>
+<td>【85度C】55元飲品(好禮即享券) (s771.txt)</td>
+<td>2025/03/08</td>
+<td>2025/06/08</td>
+<td>E1099081107102200848</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1099081107102200848&type=1" onclick="openModal(19)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1099081107102200848&type=0" onclick="openModal(19)" alt="Barcode">
+  <div id="modal19" class="modal">
+    <span class="close" onclick="closeModal(19)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1099081107102200848&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1099081107102200848&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row20">
+<td>11698595</td>
+<td>【85度C】55元飲品(好禮即享券) (zd855440.txt)</td>
+<td>2025/03/08</td>
+<td>2025/06/08</td>
+<td>E1099364593560800386</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1099364593560800386&type=1" onclick="openModal(20)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1099364593560800386&type=0" onclick="openModal(20)" alt="Barcode">
+  <div id="modal20" class="modal">
+    <span class="close" onclick="closeModal(20)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1099364593560800386&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1099364593560800386&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row21">
+<td>11698595</td>
+<td>【85度C】55元飲品(好禮即享券) (za3440.txt)</td>
+<td>2025/03/08</td>
+<td>2025/06/08</td>
+<td>E1094387455577979007</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1094387455577979007&type=1" onclick="openModal(21)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1094387455577979007&type=0" onclick="openModal(21)" alt="Barcode">
+  <div id="modal21" class="modal">
+    <span class="close" onclick="closeModal(21)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1094387455577979007&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1094387455577979007&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row22">
+<td>11698595</td>
+<td>【85度C】55元飲品(好禮即享券) (q716.txt)</td>
+<td>2025/03/08</td>
+<td>2025/06/08</td>
+<td>E1097764167350286970</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1097764167350286970&type=1" onclick="openModal(22)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1097764167350286970&type=0" onclick="openModal(22)" alt="Barcode">
+  <div id="modal22" class="modal">
+    <span class="close" onclick="closeModal(22)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1097764167350286970&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1097764167350286970&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row23">
+<td>11698595</td>
+<td>【85度C】55元飲品(好禮即享券) (i419.txt)</td>
+<td>2025/03/08</td>
+<td>2025/06/08</td>
+<td>E1097008682108700898</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1097008682108700898&type=1" onclick="openModal(23)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1097008682108700898&type=0" onclick="openModal(23)" alt="Barcode">
+  <div id="modal23" class="modal">
+    <span class="close" onclick="closeModal(23)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1097008682108700898&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1097008682108700898&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row24">
+<td>11698595</td>
+<td>【85度C】55元飲品(好禮即享券) (u822.txt)</td>
+<td>2025/03/08</td>
+<td>2025/06/08</td>
+<td>E1099823310855457685</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1099823310855457685&type=1" onclick="openModal(24)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1099823310855457685&type=0" onclick="openModal(24)" alt="Barcode">
+  <div id="modal24" class="modal">
+    <span class="close" onclick="closeModal(24)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1099823310855457685&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1099823310855457685&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row25">
+<td>11698595</td>
+<td>【85度C】55元飲品(好禮即享券) (e167.txt)</td>
+<td>2025/03/08</td>
+<td>2025/06/08</td>
+<td>E1095603396621005422</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1095603396621005422&type=1" onclick="openModal(25)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1095603396621005422&type=0" onclick="openModal(25)" alt="Barcode">
+  <div id="modal25" class="modal">
+    <span class="close" onclick="closeModal(25)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1095603396621005422&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1095603396621005422&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row26">
+<td>11698595</td>
+<td>【85度C】55元飲品(好禮即享券) (v917.txt)</td>
+<td>2025/03/08</td>
+<td>2025/06/08</td>
+<td>E1092209196614090679</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1092209196614090679&type=1" onclick="openModal(26)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1092209196614090679&type=0" onclick="openModal(26)" alt="Barcode">
+  <div id="modal26" class="modal">
+    <span class="close" onclick="closeModal(26)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1092209196614090679&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1092209196614090679&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row27">
+<td>11698593</td>
+<td>【85度C】60元飲品(好禮即享券) (x946.txt)</td>
+<td>2025/03/08</td>
+<td>2025/06/08</td>
+<td>E1224880555895563331</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1224880555895563331&type=1" onclick="openModal(27)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1224880555895563331&type=0" onclick="openModal(27)" alt="Barcode">
+  <div id="modal27" class="modal">
+    <span class="close" onclick="closeModal(27)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1224880555895563331&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1224880555895563331&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row28">
+<td>11698593</td>
+<td>【85度C】60元飲品(好禮即享券) (t811.txt)</td>
+<td>2025/03/08</td>
+<td>2025/06/08</td>
+<td>E1224845358333370944</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1224845358333370944&type=1" onclick="openModal(28)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1224845358333370944&type=0" onclick="openModal(28)" alt="Barcode">
+  <div id="modal28" class="modal">
+    <span class="close" onclick="closeModal(28)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1224845358333370944&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1224845358333370944&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row29">
+<td>11698609</td>
+<td>【MOS 摩斯漢堡】C512培根雞蛋堡+冰紅茶M(好禮即享券) (zb218440.txt)</td>
+<td>2025/03/08</td>
+<td>2025/06/08</td>
+<td>186056904</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=186056904&type=1" onclick="openModal(29)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=186056904&type=0" onclick="openModal(29)" alt="Barcode">
+  <div id="modal29" class="modal">
+    <span class="close" onclick="closeModal(29)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=186056904&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=186056904&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row30">
+<td>11698609</td>
+<td>【MOS 摩斯漢堡】C512培根雞蛋堡+冰紅茶M(好禮即享券) (b043.txt)</td>
+<td>2025/03/08</td>
+<td>2025/06/08</td>
+<td>433804623</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=433804623&type=1" onclick="openModal(30)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=433804623&type=0" onclick="openModal(30)" alt="Barcode">
+  <div id="modal30" class="modal">
+    <span class="close" onclick="closeModal(30)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=433804623&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=433804623&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row31">
+<td>13697645</td>
+<td>【麥當勞】麥香魚(好禮即享券) (y953.txt)</td>
+<td>2025/03/08</td>
+<td>2025/06/08</td>
+<td>MDN2475110986092</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN2475110986092&type=1" onclick="openModal(31)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN2475110986092&type=0" onclick="openModal(31)" alt="Barcode">
+  <div id="modal31" class="modal">
+    <span class="close" onclick="closeModal(31)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN2475110986092&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN2475110986092&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row32">
+<td>13697644</td>
+<td>【麥當勞】麥香(好禮即享券) (h414.txt)</td>
+<td>2025/03/22</td>
+<td>2025/06/22</td>
+<td>MDN8022604382405</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN8022604382405&type=1" onclick="openModal(32)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN8022604382405&type=0" onclick="openModal(32)" alt="Barcode">
+  <div id="modal32" class="modal">
+    <span class="close" onclick="closeModal(32)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN8022604382405&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN8022604382405&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row33">
+<td>13178398</td>
+<td>【21風味館】0474 大黃金脆薯(好禮即享券) (h414.txt)</td>
+<td>2025/03/31</td>
+<td>2025/06/30</td>
+<td>E653558031</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E653558031&type=1" onclick="openModal(33)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E653558031&type=0" onclick="openModal(33)" alt="Barcode">
+  <div id="modal33" class="modal">
+    <span class="close" onclick="closeModal(33)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E653558031&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E653558031&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row34">
+<td>13697644</td>
+<td>【麥當勞】麥香(好禮即享券) (za3440.txt)</td>
+<td>2025/03/31</td>
+<td>2025/06/30</td>
+<td>MDN0821741916579</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN0821741916579&type=1" onclick="openModal(34)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN0821741916579&type=0" onclick="openModal(34)" alt="Barcode">
+  <div id="modal34" class="modal">
+    <span class="close" onclick="closeModal(34)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN0821741916579&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN0821741916579&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row35">
+<td>12540036</td>
+<td>【21風味館】9384蜂蜜綠買一送一(好禮即享券) (u822.txt)</td>
+<td>2025/04/07</td>
+<td>2025/07/07</td>
+<td>E504984208</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E504984208&type=1" onclick="openModal(35)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E504984208&type=0" onclick="openModal(35)" alt="Barcode">
+  <div id="modal35" class="modal">
+    <span class="close" onclick="closeModal(35)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E504984208&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E504984208&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row36">
+<td>12540036</td>
+<td>【21風味館】9384蜂蜜綠買一送一(好禮即享券) (d098.txt)</td>
+<td>2025/04/07</td>
+<td>2025/07/07</td>
+<td>E448853052</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E448853052&type=1" onclick="openModal(36)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E448853052&type=0" onclick="openModal(36)" alt="Barcode">
+  <div id="modal36" class="modal">
+    <span class="close" onclick="closeModal(36)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E448853052&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E448853052&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row37">
+<td>11698595</td>
+<td>【85度C】55元飲品(好禮即享券) (k448.txt)</td>
+<td>2025/04/07</td>
+<td>2025/07/07</td>
+<td>E1091245572558235588</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1091245572558235588&type=1" onclick="openModal(37)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1091245572558235588&type=0" onclick="openModal(37)" alt="Barcode">
+  <div id="modal37" class="modal">
+    <span class="close" onclick="closeModal(37)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1091245572558235588&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1091245572558235588&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row38">
+<td>11698609</td>
+<td>【MOS 摩斯漢堡】C512培根雞蛋堡+冰紅茶M(好禮即享券) (a035.txt)</td>
+<td>2025/04/07</td>
+<td>2025/07/07</td>
+<td>291709990</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=291709990&type=1" onclick="openModal(38)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=291709990&type=0" onclick="openModal(38)" alt="Barcode">
+  <div id="modal38" class="modal">
+    <span class="close" onclick="closeModal(38)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=291709990&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=291709990&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row39">
+<td>11698609</td>
+<td>【MOS 摩斯漢堡】C512培根雞蛋堡+冰紅茶M(好禮即享券) (a035.txt)</td>
+<td>2025/04/07</td>
+<td>2025/07/07</td>
+<td>973916019</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=973916019&type=1" onclick="openModal(39)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=973916019&type=0" onclick="openModal(39)" alt="Barcode">
+  <div id="modal39" class="modal">
+    <span class="close" onclick="closeModal(39)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=973916019&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=973916019&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row40">
+<td>13698297</td>
+<td>【麥當勞】4塊麥克塊(好禮即享券) (a035.txt)</td>
+<td>2025/04/07</td>
+<td>2025/07/07</td>
+<td>MDN4865804209698</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN4865804209698&type=1" onclick="openModal(40)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN4865804209698&type=0" onclick="openModal(40)" alt="Barcode">
+  <div id="modal40" class="modal">
+    <span class="close" onclick="closeModal(40)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN4865804209698&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN4865804209698&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row41">
+<td>13698297</td>
+<td>【麥當勞】4塊麥克塊(好禮即享券) (h414.txt)</td>
+<td>2025/04/07</td>
+<td>2025/07/07</td>
+<td>MDN7193134818385</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN7193134818385&type=1" onclick="openModal(41)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN7193134818385&type=0" onclick="openModal(41)" alt="Barcode">
+  <div id="modal41" class="modal">
+    <span class="close" onclick="closeModal(41)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN7193134818385&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN7193134818385&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row42">
+<td>13698297</td>
+<td>【麥當勞】4塊麥克塊(好禮即享券) (t811.txt)</td>
+<td>2025/04/07</td>
+<td>2025/07/07</td>
+<td>MDN3961931509946</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN3961931509946&type=1" onclick="openModal(42)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN3961931509946&type=0" onclick="openModal(42)" alt="Barcode">
+  <div id="modal42" class="modal">
+    <span class="close" onclick="closeModal(42)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN3961931509946&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN3961931509946&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row43">
+<td>13698297</td>
+<td>【麥當勞】4塊麥克塊(好禮即享券) (r717.txt)</td>
+<td>2025/04/07</td>
+<td>2025/07/07</td>
+<td>MDN6601379372847</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN6601379372847&type=1" onclick="openModal(43)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN6601379372847&type=0" onclick="openModal(43)" alt="Barcode">
+  <div id="modal43" class="modal">
+    <span class="close" onclick="closeModal(43)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN6601379372847&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN6601379372847&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row44">
+<td>13698297</td>
+<td>【麥當勞】4塊麥克塊(好禮即享券) (q716.txt)</td>
+<td>2025/04/07</td>
+<td>2025/07/07</td>
+<td>MDN3948746560037</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN3948746560037&type=1" onclick="openModal(44)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN3948746560037&type=0" onclick="openModal(44)" alt="Barcode">
+  <div id="modal44" class="modal">
+    <span class="close" onclick="closeModal(44)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN3948746560037&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN3948746560037&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row45">
+<td>13697658</td>
+<td>【麥當勞】大蛋捲冰淇淋(好禮即享券) (zd855440.txt)</td>
+<td>2025/04/07</td>
+<td>2025/07/07</td>
+<td>MDN9214189261016</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN9214189261016&type=1" onclick="openModal(45)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN9214189261016&type=0" onclick="openModal(45)" alt="Barcode">
+  <div id="modal45" class="modal">
+    <span class="close" onclick="closeModal(45)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN9214189261016&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN9214189261016&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row46">
+<td>13697658</td>
+<td>【麥當勞】大蛋捲冰淇淋(好禮即享券) (za3440.txt)</td>
+<td>2025/04/07</td>
+<td>2025/07/07</td>
+<td>MDN0789770758526</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN0789770758526&type=1" onclick="openModal(46)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN0789770758526&type=0" onclick="openModal(46)" alt="Barcode">
+  <div id="modal46" class="modal">
+    <span class="close" onclick="closeModal(46)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN0789770758526&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN0789770758526&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row47">
+<td>12964180</td>
+<td>【21風味館】0300紫玉Q藷(好禮即享券) (t811.txt)</td>
+<td>2025/04/14</td>
+<td>2025/07/14</td>
+<td>E851992293</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E851992293&type=1" onclick="openModal(47)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E851992293&type=0" onclick="openModal(47)" alt="Barcode">
+  <div id="modal47" class="modal">
+    <span class="close" onclick="closeModal(47)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E851992293&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E851992293&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row48">
+<td>12964180</td>
+<td>【21風味館】0300紫玉Q藷(好禮即享券) (z2771.txt)</td>
+<td>2025/04/14</td>
+<td>2025/07/14</td>
+<td>E589964604</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E589964604&type=1" onclick="openModal(48)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E589964604&type=0" onclick="openModal(48)" alt="Barcode">
+  <div id="modal48" class="modal">
+    <span class="close" onclick="closeModal(48)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E589964604&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E589964604&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row49">
+<td>12540036</td>
+<td>【21風味館】9384蜂蜜綠買一送一(好禮即享券) (x946.txt)</td>
+<td>2025/04/14</td>
+<td>2025/07/14</td>
+<td>E371937251</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E371937251&type=1" onclick="openModal(49)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E371937251&type=0" onclick="openModal(49)" alt="Barcode">
+  <div id="modal49" class="modal">
+    <span class="close" onclick="closeModal(49)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E371937251&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E371937251&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row50">
+<td>12875746</td>
+<td>【85度C】4/30偷殺!35元飲品(好禮即享券) (a035.txt)</td>
+<td>2025/04/14</td>
+<td>2025/07/14</td>
+<td>E1080811660130961539</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1080811660130961539&type=1" onclick="openModal(50)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1080811660130961539&type=0" onclick="openModal(50)" alt="Barcode">
+  <div id="modal50" class="modal">
+    <span class="close" onclick="closeModal(50)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1080811660130961539&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=E1080811660130961539&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row51">
+<td>13697644</td>
+<td>【麥當勞】麥香(好禮即享券) (zb218440.txt)</td>
+<td>2025/04/14</td>
+<td>2025/07/14</td>
+<td>MDN9560208905685</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN9560208905685&type=1" onclick="openModal(51)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN9560208905685&type=0" onclick="openModal(51)" alt="Barcode">
+  <div id="modal51" class="modal">
+    <span class="close" onclick="closeModal(51)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN9560208905685&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN9560208905685&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr><tr id="row52">
+<td>13697644</td>
+<td>【麥當勞】麥香(好禮即享券) (j440.txt)</td>
+<td>2025/04/14</td>
+<td>2025/07/14</td>
+<td>MDN5821494667472</td>
+<td>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN5821494667472&type=1" onclick="openModal(52)" alt="QRCode"><br>
+  <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN5821494667472&type=0" onclick="openModal(52)" alt="Barcode">
+  <div id="modal52" class="modal">
+    <span class="close" onclick="closeModal(52)">&times;</span>
+    <div class="modal-content">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN5821494667472&type=1" alt="QRCode">
+      <img src="https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?code=MDN5821494667472&type=0" alt="Barcode">
+    </div>
+  </div>
+</td>
+</tr></table>
+
+<script>
+function openModal(idx) {
+  document.getElementById('modal' + idx).style.display = "block";
+  
+  var row = document.getElementById('row' + idx);
+  if (row) {
+    row.classList.add('highlight');
+  }
+}
+
+function closeModal(idx) {
+  document.getElementById('modal' + idx).style.display = "none";
+}
+
+window.onclick = function(event) {
+  for (var i = 0; i < 1000; i++) {
+    var modal = document.getElementById('modal' + i);
+    if (modal && event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+}
+</script>
+
+</body>
+</html>
