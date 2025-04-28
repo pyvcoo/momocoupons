@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>產品資訊</title>
 <style>
-  body { font-size: 150%; } /* 字體放大 150% */
+  body { font-size: 150%; }
   table { border-collapse: collapse; width: 100%; }
   th, td { border: 1px solid #ddd; padding: 8px; text-align: center; vertical-align: middle; }
   th { background-color: #f2f2f2; }
@@ -16,13 +16,15 @@
     overflow: auto; background-color: rgba(0,0,0,0.8);
   }
   .modal-content {
-    margin: auto; display: block; width: 300px; max-width: 90%;
+    margin: auto; display: block; width: 300px; max-width: 90%; text-align: center; /* ← 這裡加 text-align:center */
   }
   .modal-content img {
     width: 100%; margin-bottom: 10px;
   }
   .modal-content img.barcode {
-    width: 200%; /* Barcode放大到2倍寬 */
+    width: 200%; /* Barcode放大兩倍 */
+    display: block;
+    margin: 10px auto; /* ← 加這行，強制圖片置中 */
   }
   .close {
     position: absolute; top: 15px; right: 35px; color: white;
