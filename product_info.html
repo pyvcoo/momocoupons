@@ -26,7 +26,8 @@
     text-align: center;
   }
   .modal-content img.qrcode {
-    width: 120px; /* QR Code 小小的置中 */
+    width: auto;  /* QRCODE 保持原尺寸 */
+    max-width: 300px; /* 防止太大超出 */
     display: block;
     margin: 0 auto 20px auto;
   }
@@ -35,7 +36,7 @@
     padding: 0 20px; /* 左右留白20px */
   }
   .barcode-wrapper img.barcode {
-    width: 250%; /* 放大2.5倍 */
+    width: 200%; /* Barcode放大2倍 */
     max-width: none;
     height: auto;
   }
