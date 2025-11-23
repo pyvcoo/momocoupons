@@ -461,7 +461,7 @@
 </tr></table>
 <script>
 // 儲存已點擊狀態的 Key
-const STORAGE_KEY = 'momo_visited_vouchers';
+const STORAGE_KEY = 'momo_visited_vouchers_session';
 
 function openModal(idx) {
 	document.getElementById('modal' + idx).style.display = "block";
@@ -489,16 +489,16 @@ function closeModal(idx) {
 
 // 儲存序號到 LocalStorage
 function saveVisited(serial) {
-	let visited = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+	let visited = JSON.parse(sessionStorage.getItem(STORAGE_KEY) || '[]'); // 改成 sessionStorage
 	if(!visited.includes(serial)) {
 		visited.push(serial);
-		localStorage.setItem(STORAGE_KEY, JSON.stringify(visited));
+		sessionStorage.setItem(STORAGE_KEY, JSON.stringify(visited)); // 改成 sessionStorage
 	}
 }
 
 // 恢復已讀狀態
 function restoreVisited() {
-	let visited = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+	let visited = JSON.parse(sessionStorage.getItem(STORAGE_KEY) || '[]'); // 改成 sessionStorage
 	const rows = document.querySelectorAll('tr[data-serial]');
 	rows.forEach(row => {
 		if(visited.includes(row.getAttribute('data-serial'))) {
@@ -506,7 +506,7 @@ function restoreVisited() {
 		}
 	});
 }
-
+	
 // 點擊 Modal 背景關閉 Modal
 window.onclick = function(event) {
 	for (var i = 0; i < 1000; i++) {
