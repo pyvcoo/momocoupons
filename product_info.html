@@ -13,7 +13,12 @@
 	td { font-size: 0.9em; }
 	img { cursor: pointer; transition: transform .2s; border-radius: 4px; }
 	img:hover { transform: scale(1.1); }
+	
+	/* 當前點擊時的高亮顏色 */
 	tr.highlight { background-color: #fff9c4; }
+	
+	/* 【新增】已讀過的票券顯示淺黃色 */
+	tr.visited { background-color: #ffffcc; }
 	
 	/* Modal Styles */
 	.modal {
@@ -65,7 +70,7 @@
 	.date { top: 200px; left: 30px; }
 	.expiry { top: 225px; left: 30px; color: red; }
 	
-	/* MODIFIED 1: 票券序號往下移動二格 (原 280px -> 300px) */
+	/* 保持原設定：票券序號往下移動二格 (325px) */
 	.serial {
 		position: absolute;
 		top: 325px; 
@@ -76,7 +81,7 @@
 		white-space: nowrap; 
 	}
 
-	/* MODIFIED 2: 條碼向上移動以靠近 (原 320px -> 340px) */
+	/* 保持原設定：QRCode */
 	.qrcode {
 		position: absolute;
 		top: 355px; 
@@ -88,7 +93,7 @@
 	}
 	.qrcode img { width: 100%; height: auto; display: block; }
 	
-	/* MODIFIED 3: 條碼向上移動以靠近 (原 480px -> 500px) */
+	/* 保持原設定：Barcode */
 	.barcode {
 		position: absolute;
 		top: 515px; 
@@ -120,7 +125,7 @@
 <th>購買日期</th>
 <th>兌換期限</th>
 <th>QRCode/Barcode</th>
-</tr><tr id="row0">
+</tr><tr id="row0" data-serial="SKS5386671413601">
 <td>【雲雀集團】100元 一次抵用型好禮即享券(涮乃葉、古拉爵) <span style="font-size: 0.7em; color: #999;">(b043.txt)</span></td>
 <td>2025/11/01</td>
 <td style="color: red; font-weight: bold;">2026/02/01</td>
@@ -144,7 +149,7 @@
 		</div>
 	</div>
 </td>
-</tr><tr id="row1">
+</tr><tr id="row1" data-serial="SKS5449864462216">
 <td>【雲雀集團】100元 一次抵用型好禮即享券(涮乃葉、古拉爵) <span style="font-size: 0.7em; color: #999;">(b043.txt)</span></td>
 <td>2025/11/01</td>
 <td style="color: red; font-weight: bold;">2026/02/01</td>
@@ -168,7 +173,7 @@
 		</div>
 	</div>
 </td>
-</tr><tr id="row2">
+</tr><tr id="row2" data-serial="E187019930">
 <td>【21風味館】9384蜂蜜綠買一送一(好禮即享券) <span style="font-size: 0.7em; color: #999;">(b043.txt)</span></td>
 <td>2025/11/01</td>
 <td style="color: red; font-weight: bold;">2026/05/01</td>
@@ -192,7 +197,7 @@
 		</div>
 	</div>
 </td>
-</tr><tr id="row3">
+</tr><tr id="row3" data-serial="92725055691">
 <td>【天仁喫茶趣】餐館 100元抵用券 好禮即享券(一次抵用型) <span style="font-size: 0.7em; color: #999;">(a035.txt)</span></td>
 <td>2025/11/11</td>
 <td style="color: red; font-weight: bold;">2026/05/11</td>
@@ -216,7 +221,7 @@
 		</div>
 	</div>
 </td>
-</tr><tr id="row4">
+</tr><tr id="row4" data-serial="92529473957">
 <td>【天仁喫茶趣】餐館 100元抵用券 好禮即享券(一次抵用型) <span style="font-size: 0.7em; color: #999;">(b043.txt)</span></td>
 <td>2025/11/11</td>
 <td style="color: red; font-weight: bold;">2026/05/11</td>
@@ -240,7 +245,7 @@
 		</div>
 	</div>
 </td>
-</tr><tr id="row5">
+</tr><tr id="row5" data-serial="E636498128">
 <td>【21風味館】9384蜂蜜綠買一送一(好禮即享券) <span style="font-size: 0.7em; color: #999;">(b043.txt)</span></td>
 <td>2025/11/11</td>
 <td style="color: red; font-weight: bold;">2026/05/12</td>
@@ -264,7 +269,7 @@
 		</div>
 	</div>
 </td>
-</tr><tr id="row6">
+</tr><tr id="row6" data-serial="17413PY3R828">
 <td>【ViVi PARK】ViVi PARK Vi幣 30點(享樂券) <span style="font-size: 0.7em; color: #999;">(a035.txt)</span></td>
 <td>2025/11/22</td>
 <td style="color: red; font-weight: bold;"></td>
@@ -288,7 +293,7 @@
 		</div>
 	</div>
 </td>
-</tr><tr id="row7">
+</tr><tr id="row7" data-serial="174135Y89K4A">
 <td>【ViVi PARK】ViVi PARK Vi幣 30點(享樂券) <span style="font-size: 0.7em; color: #999;">(a035.txt)</span></td>
 <td>2025/11/16</td>
 <td style="color: red; font-weight: bold;"></td>
@@ -312,7 +317,7 @@
 		</div>
 	</div>
 </td>
-</tr><tr id="row8">
+</tr><tr id="row8" data-serial="17413Q141F9C">
 <td>【ViVi PARK】ViVi PARK Vi幣 30點(享樂券) <span style="font-size: 0.7em; color: #999;">(a035.txt)</span></td>
 <td>2025/11/16</td>
 <td style="color: red; font-weight: bold;"></td>
@@ -336,7 +341,7 @@
 		</div>
 	</div>
 </td>
-</tr><tr id="row9">
+</tr><tr id="row9" data-serial="17413XXG7676">
 <td>【ViVi PARK】ViVi PARK Vi幣 30點(享樂券) <span style="font-size: 0.7em; color: #999;">(b043.txt)</span></td>
 <td>2025/11/22</td>
 <td style="color: red; font-weight: bold;"></td>
@@ -360,7 +365,7 @@
 		</div>
 	</div>
 </td>
-</tr><tr id="row10">
+</tr><tr id="row10" data-serial="174133684R67">
 <td>【ViVi PARK】ViVi PARK Vi幣 30點(享樂券) <span style="font-size: 0.7em; color: #999;">(b043.txt)</span></td>
 <td>2025/11/16</td>
 <td style="color: red; font-weight: bold;"></td>
@@ -384,7 +389,7 @@
 		</div>
 	</div>
 </td>
-</tr><tr id="row11">
+</tr><tr id="row11" data-serial="174134MLJ75F">
 <td>【ViVi PARK】ViVi PARK Vi幣 30點(享樂券) <span style="font-size: 0.7em; color: #999;">(b043.txt)</span></td>
 <td>2025/11/16</td>
 <td style="color: red; font-weight: bold;"></td>
@@ -410,15 +415,49 @@
 </td>
 </tr></table>
 <script>
+// 使用 sessionStorage (關閉網頁後自動消失)
+const STORAGE_KEY = 'momo_visited_vouchers_session';
+
 function openModal(idx) {
 	document.getElementById('modal' + idx).style.display = "block";
 	var row = document.getElementById('row' + idx);
-	if (row) row.classList.add('highlight');
+	if (row) {
+		row.classList.add('highlight');
+		// 加上已讀樣式
+		row.classList.add('visited');
+		
+		// 儲存到 sessionStorage
+		var serial = row.getAttribute('data-serial');
+		if(serial) {
+			saveVisited(serial);
+		}
+	}
 }
+
 function closeModal(idx) {
 	document.getElementById('modal' + idx).style.display = "none";
 	var row = document.getElementById('row' + idx);
 	if (row) row.classList.remove('highlight');
+}
+
+// 儲存已讀狀態 (SessionStorage)
+function saveVisited(serial) {
+	let visited = JSON.parse(sessionStorage.getItem(STORAGE_KEY) || '[]');
+	if(!visited.includes(serial)) {
+		visited.push(serial);
+		sessionStorage.setItem(STORAGE_KEY, JSON.stringify(visited));
+	}
+}
+
+// 恢復已讀狀態
+function restoreVisited() {
+	let visited = JSON.parse(sessionStorage.getItem(STORAGE_KEY) || '[]');
+	const rows = document.querySelectorAll('tr[data-serial]');
+	rows.forEach(row => {
+		if(visited.includes(row.getAttribute('data-serial'))) {
+			row.classList.add('visited');
+		}
+	});
 }
 
 // 點擊 Modal 背景關閉 Modal
@@ -445,7 +484,7 @@ function highlightExpiring() {
 		// 假設 ExpiryDate 在第 3 個 td (Assuming ExpiryDate is in the 3rd td)
 		const expiryCell = row.children[2]; 
 		const expiryDateStr = expiryCell ? expiryCell.textContent.trim() : '';
-        if (expiryDateStr === '') return; // 略過空白日期
+		if (expiryDateStr === '') return; // 略過空白日期
 
 		// 嘗試解析日期，格式為 YYYY/MM/DD (Try to parse date, format YYYY/MM/DD)
 		const dateParts = expiryDateStr.split('/');
@@ -468,7 +507,12 @@ function highlightExpiring() {
 		}
 	});
 }
-document.addEventListener('DOMContentLoaded', highlightExpiring);
+
+// 頁面載入時執行恢復與檢查
+document.addEventListener('DOMContentLoaded', function() {
+	restoreVisited();
+	highlightExpiring();
+});
 </script>
 </body>
 </html>
