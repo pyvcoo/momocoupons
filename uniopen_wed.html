@@ -1,0 +1,593 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>多人同步雲端券盒 (高效版)</title>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: sans-serif; background: #f4f7f9; margin: 0; padding: 10px; padding-top: 110px; }
+        .navbar { position: fixed; top: 0; left: 0; width: 100%; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1000; padding: 10px; box-sizing: border-box; }
+        .sync-info { font-size: 11px; text-align: center; margin-bottom: 8px; font-weight: bold; }
+        .status-syncing { color: orange; }
+        .status-done { color: green; }
+        .nav-links { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+        .nav-item { background: #e8f0fe; color: #1a73e8; padding: 5px 12px; border-radius: 20px; text-decoration: none; font-size: 12px; font-weight: bold; border: 1px solid #1a73e8; }
+        .date-section { background: white; border-radius: 12px; padding: 15px; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); scroll-margin-top: 120px; }
+        h2 { color: #333; border-left: 5px solid #1a73e8; padding-left: 10px; margin-top: 0; font-size: 16px; margin-bottom: 15px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
+        .card { position: relative; border: 1px solid #eee; padding: 5px; border-radius: 8px; background: #fff; }
+        .img-box { width: 100%; aspect-ratio: 1/1; background: #eee; border-radius: 5px; overflow: hidden; cursor: pointer; }
+        .card img { width: 100%; height: 100%; object-fit: contain; }
+        .used img { filter: grayscale(100%); opacity: 0.2; }
+        .used::after { content: "已使用"; position: absolute; top: 35%; left: 0; width: 100%; color: #d93025; font-weight: bold; font-size: 24px; transform: rotate(-15deg); text-align: center; border: 2px solid #d93025; pointer-events: none; background: rgba(255,255,255,0.8); z-index: 5; }
+        .btn-use { width: 100%; margin-top: 8px; padding: 8px 0; border: none; background: #1a73e8; color: white; border-radius: 5px; font-size: 11px; cursor: pointer; }
+        .used .btn-use { background: #dadce0; color: #70757a; }
+        .overlay { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); justify-content:center; align-items:center; z-index: 2000; }
+        .overlay img { max-width: 95%; max-height: 95%; }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div id="sync-status" class="sync-info status-done">● 雲端載入中</div>
+        <div class="nav-links">
+            
+            <a href="#section-0107%287-11%e7%b4%94%e5%96%ab%e8%8c%b6%e7%b4%85%e8%8c%b6%29" class="nav-item">0107(7-11純喫茶紅茶)</a>
+            
+            <a href="#section-1231%287-11%e5%a4%a7%e5%b8%83%e4%b8%81%29" class="nav-item">1231(7-11大布丁)</a>
+            
+        </div>
+    </div>
+
+    
+    <div class="date-section" id="section-0107(7-11純喫茶紅茶)">
+        <h2>品項：0107(7-11純喫茶紅茶)</h2>
+        <div class="grid">
+            
+            <div class="card" id="card-0107711純喫茶紅茶_035_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/0107711%e7%b4%94%e5%96%ab%e8%8c%b6%e7%b4%85%e8%8c%b6_035_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('0107711純喫茶紅茶_035_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-0107711純喫茶紅茶_043_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/0107711%e7%b4%94%e5%96%ab%e8%8c%b6%e7%b4%85%e8%8c%b6_043_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('0107711純喫茶紅茶_043_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-0107711純喫茶紅茶_059_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/0107711%e7%b4%94%e5%96%ab%e8%8c%b6%e7%b4%85%e8%8c%b6_059_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('0107711純喫茶紅茶_059_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-0107711純喫茶紅茶_098_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/0107711%e7%b4%94%e5%96%ab%e8%8c%b6%e7%b4%85%e8%8c%b6_098_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('0107711純喫茶紅茶_098_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-0107711純喫茶紅茶_167_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/0107711%e7%b4%94%e5%96%ab%e8%8c%b6%e7%b4%85%e8%8c%b6_167_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('0107711純喫茶紅茶_167_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-0107711純喫茶紅茶_218440_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/0107711%e7%b4%94%e5%96%ab%e8%8c%b6%e7%b4%85%e8%8c%b6_218440_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('0107711純喫茶紅茶_218440_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-0107711純喫茶紅茶_2771_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/0107711%e7%b4%94%e5%96%ab%e8%8c%b6%e7%b4%85%e8%8c%b6_2771_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('0107711純喫茶紅茶_2771_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-0107711純喫茶紅茶_300_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/0107711%e7%b4%94%e5%96%ab%e8%8c%b6%e7%b4%85%e8%8c%b6_300_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('0107711純喫茶紅茶_300_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-0107711純喫茶紅茶_318440_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/0107711%e7%b4%94%e5%96%ab%e8%8c%b6%e7%b4%85%e8%8c%b6_318440_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('0107711純喫茶紅茶_318440_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-0107711純喫茶紅茶_3440_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/0107711%e7%b4%94%e5%96%ab%e8%8c%b6%e7%b4%85%e8%8c%b6_3440_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('0107711純喫茶紅茶_3440_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-0107711純喫茶紅茶_352_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/0107711%e7%b4%94%e5%96%ab%e8%8c%b6%e7%b4%85%e8%8c%b6_352_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('0107711純喫茶紅茶_352_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-0107711純喫茶紅茶_414_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/0107711%e7%b4%94%e5%96%ab%e8%8c%b6%e7%b4%85%e8%8c%b6_414_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('0107711純喫茶紅茶_414_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-0107711純喫茶紅茶_419_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/0107711%e7%b4%94%e5%96%ab%e8%8c%b6%e7%b4%85%e8%8c%b6_419_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('0107711純喫茶紅茶_419_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-0107711純喫茶紅茶_440_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/0107711%e7%b4%94%e5%96%ab%e8%8c%b6%e7%b4%85%e8%8c%b6_440_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('0107711純喫茶紅茶_440_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-0107711純喫茶紅茶_448_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/0107711%e7%b4%94%e5%96%ab%e8%8c%b6%e7%b4%85%e8%8c%b6_448_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('0107711純喫茶紅茶_448_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-0107711純喫茶紅茶_449_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/0107711%e7%b4%94%e5%96%ab%e8%8c%b6%e7%b4%85%e8%8c%b6_449_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('0107711純喫茶紅茶_449_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-0107711純喫茶紅茶_454_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/0107711%e7%b4%94%e5%96%ab%e8%8c%b6%e7%b4%85%e8%8c%b6_454_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('0107711純喫茶紅茶_454_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-0107711純喫茶紅茶_534_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/0107711%e7%b4%94%e5%96%ab%e8%8c%b6%e7%b4%85%e8%8c%b6_534_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('0107711純喫茶紅茶_534_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-0107711純喫茶紅茶_656_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/0107711%e7%b4%94%e5%96%ab%e8%8c%b6%e7%b4%85%e8%8c%b6_656_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('0107711純喫茶紅茶_656_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-0107711純喫茶紅茶_708_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/0107711%e7%b4%94%e5%96%ab%e8%8c%b6%e7%b4%85%e8%8c%b6_708_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('0107711純喫茶紅茶_708_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-0107711純喫茶紅茶_716_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/0107711%e7%b4%94%e5%96%ab%e8%8c%b6%e7%b4%85%e8%8c%b6_716_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('0107711純喫茶紅茶_716_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-0107711純喫茶紅茶_717_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/0107711%e7%b4%94%e5%96%ab%e8%8c%b6%e7%b4%85%e8%8c%b6_717_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('0107711純喫茶紅茶_717_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-0107711純喫茶紅茶_771_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/0107711%e7%b4%94%e5%96%ab%e8%8c%b6%e7%b4%85%e8%8c%b6_771_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('0107711純喫茶紅茶_771_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-0107711純喫茶紅茶_855440_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/0107711%e7%b4%94%e5%96%ab%e8%8c%b6%e7%b4%85%e8%8c%b6_855440_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('0107711純喫茶紅茶_855440_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-0107711純喫茶紅茶_917_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/0107711%e7%b4%94%e5%96%ab%e8%8c%b6%e7%b4%85%e8%8c%b6_917_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('0107711純喫茶紅茶_917_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-0107711純喫茶紅茶_925440_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/0107711%e7%b4%94%e5%96%ab%e8%8c%b6%e7%b4%85%e8%8c%b6_925440_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('0107711純喫茶紅茶_925440_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-0107711純喫茶紅茶_941_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/0107711%e7%b4%94%e5%96%ab%e8%8c%b6%e7%b4%85%e8%8c%b6_941_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('0107711純喫茶紅茶_941_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-0107711純喫茶紅茶_946_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/0107711%e7%b4%94%e5%96%ab%e8%8c%b6%e7%b4%85%e8%8c%b6_946_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('0107711純喫茶紅茶_946_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-0107711純喫茶紅茶_953_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/0107711%e7%b4%94%e5%96%ab%e8%8c%b6%e7%b4%85%e8%8c%b6_953_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('0107711純喫茶紅茶_953_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-0107711純喫茶紅茶_s435_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/0107711%e7%b4%94%e5%96%ab%e8%8c%b6%e7%b4%85%e8%8c%b6_s435_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('0107711純喫茶紅茶_s435_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-0107711純喫茶紅茶_s644_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/0107711%e7%b4%94%e5%96%ab%e8%8c%b6%e7%b4%85%e8%8c%b6_s644_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('0107711純喫茶紅茶_s644_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-0107711純喫茶紅茶_t140_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/0107711%e7%b4%94%e5%96%ab%e8%8c%b6%e7%b4%85%e8%8c%b6_t140_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('0107711純喫茶紅茶_t140_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-0107711純喫茶紅茶_t498_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/0107711%e7%b4%94%e5%96%ab%e8%8c%b6%e7%b4%85%e8%8c%b6_t498_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('0107711純喫茶紅茶_t498_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-0107711純喫茶紅茶_v158_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/0107711%e7%b4%94%e5%96%ab%e8%8c%b6%e7%b4%85%e8%8c%b6_v158_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('0107711純喫茶紅茶_v158_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-0107711純喫茶紅茶_v183_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/0107711%e7%b4%94%e5%96%ab%e8%8c%b6%e7%b4%85%e8%8c%b6_v183_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('0107711純喫茶紅茶_v183_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-0107711純喫茶紅茶_x040_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/0107711%e7%b4%94%e5%96%ab%e8%8c%b6%e7%b4%85%e8%8c%b6_x040_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('0107711純喫茶紅茶_x040_jpg')">標示為已使用</button>
+            </div>
+            
+        </div>
+    </div>
+    
+    <div class="date-section" id="section-1231(7-11大布丁)">
+        <h2>品項：1231(7-11大布丁)</h2>
+        <div class="grid">
+            
+            <div class="card" id="card-1231711大布丁_035_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/1231711%e5%a4%a7%e5%b8%83%e4%b8%81_035_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('1231711大布丁_035_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-1231711大布丁_043_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/1231711%e5%a4%a7%e5%b8%83%e4%b8%81_043_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('1231711大布丁_043_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-1231711大布丁_059_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/1231711%e5%a4%a7%e5%b8%83%e4%b8%81_059_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('1231711大布丁_059_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-1231711大布丁_098_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/1231711%e5%a4%a7%e5%b8%83%e4%b8%81_098_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('1231711大布丁_098_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-1231711大布丁_167_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/1231711%e5%a4%a7%e5%b8%83%e4%b8%81_167_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('1231711大布丁_167_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-1231711大布丁_218440_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/1231711%e5%a4%a7%e5%b8%83%e4%b8%81_218440_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('1231711大布丁_218440_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-1231711大布丁_2771_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/1231711%e5%a4%a7%e5%b8%83%e4%b8%81_2771_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('1231711大布丁_2771_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-1231711大布丁_300_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/1231711%e5%a4%a7%e5%b8%83%e4%b8%81_300_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('1231711大布丁_300_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-1231711大布丁_318440_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/1231711%e5%a4%a7%e5%b8%83%e4%b8%81_318440_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('1231711大布丁_318440_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-1231711大布丁_3440_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/1231711%e5%a4%a7%e5%b8%83%e4%b8%81_3440_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('1231711大布丁_3440_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-1231711大布丁_352_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/1231711%e5%a4%a7%e5%b8%83%e4%b8%81_352_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('1231711大布丁_352_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-1231711大布丁_414_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/1231711%e5%a4%a7%e5%b8%83%e4%b8%81_414_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('1231711大布丁_414_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-1231711大布丁_419_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/1231711%e5%a4%a7%e5%b8%83%e4%b8%81_419_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('1231711大布丁_419_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-1231711大布丁_440_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/1231711%e5%a4%a7%e5%b8%83%e4%b8%81_440_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('1231711大布丁_440_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-1231711大布丁_448_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/1231711%e5%a4%a7%e5%b8%83%e4%b8%81_448_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('1231711大布丁_448_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-1231711大布丁_449_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/1231711%e5%a4%a7%e5%b8%83%e4%b8%81_449_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('1231711大布丁_449_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-1231711大布丁_454_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/1231711%e5%a4%a7%e5%b8%83%e4%b8%81_454_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('1231711大布丁_454_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-1231711大布丁_534_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/1231711%e5%a4%a7%e5%b8%83%e4%b8%81_534_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('1231711大布丁_534_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-1231711大布丁_656_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/1231711%e5%a4%a7%e5%b8%83%e4%b8%81_656_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('1231711大布丁_656_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-1231711大布丁_708_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/1231711%e5%a4%a7%e5%b8%83%e4%b8%81_708_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('1231711大布丁_708_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-1231711大布丁_716_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/1231711%e5%a4%a7%e5%b8%83%e4%b8%81_716_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('1231711大布丁_716_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-1231711大布丁_717_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/1231711%e5%a4%a7%e5%b8%83%e4%b8%81_717_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('1231711大布丁_717_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-1231711大布丁_771_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/1231711%e5%a4%a7%e5%b8%83%e4%b8%81_771_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('1231711大布丁_771_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-1231711大布丁_855440_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/1231711%e5%a4%a7%e5%b8%83%e4%b8%81_855440_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('1231711大布丁_855440_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-1231711大布丁_917_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/1231711%e5%a4%a7%e5%b8%83%e4%b8%81_917_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('1231711大布丁_917_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-1231711大布丁_925440_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/1231711%e5%a4%a7%e5%b8%83%e4%b8%81_925440_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('1231711大布丁_925440_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-1231711大布丁_941_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/1231711%e5%a4%a7%e5%b8%83%e4%b8%81_941_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('1231711大布丁_941_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-1231711大布丁_946_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/1231711%e5%a4%a7%e5%b8%83%e4%b8%81_946_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('1231711大布丁_946_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-1231711大布丁_953_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/1231711%e5%a4%a7%e5%b8%83%e4%b8%81_953_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('1231711大布丁_953_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-1231711大布丁_s435_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/1231711%e5%a4%a7%e5%b8%83%e4%b8%81_s435_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('1231711大布丁_s435_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-1231711大布丁_s644_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/1231711%e5%a4%a7%e5%b8%83%e4%b8%81_s644_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('1231711大布丁_s644_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-1231711大布丁_t140_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/1231711%e5%a4%a7%e5%b8%83%e4%b8%81_t140_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('1231711大布丁_t140_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-1231711大布丁_t498_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/1231711%e5%a4%a7%e5%b8%83%e4%b8%81_t498_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('1231711大布丁_t498_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-1231711大布丁_v158_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/1231711%e5%a4%a7%e5%b8%83%e4%b8%81_v158_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('1231711大布丁_v158_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-1231711大布丁_v183_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/1231711%e5%a4%a7%e5%b8%83%e4%b8%81_v183_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('1231711大布丁_v183_jpg')">標示為已使用</button>
+            </div>
+            
+            <div class="card" id="card-1231711大布丁_x040_jpg">
+                <div class="img-box" onclick="zoom(this.querySelector('img').src)">
+                    <img src="img/1231711%e5%a4%a7%e5%b8%83%e4%b8%81_x040_jpg.jpg" loading="lazy">
+                </div>
+                <button class="btn-use" onclick="toggleRemoteStatus('1231711大布丁_x040_jpg')">標示為已使用</button>
+            </div>
+            
+        </div>
+    </div>
+    
+
+    <div id="overlay" class="overlay" onclick="this.style.display='none'"><img id="zoomImg"></div>
+
+    <script>
+        const GAS_URL = "https:\/\/script.google.com\/macros\/s\/AKfycbzzdvpja7OtWBjX8GFyy9hszceboUBGKjte5Y82vNQ8XFzrj_-FKXqJKDYvRVN-AW_1\/exec";
+        async function fetchSync() {
+            const statusEl = document.getElementById('sync-status');
+            try {
+                const resp = await fetch(GAS_URL);
+                const usedMap = await resp.json();
+                document.querySelectorAll('.card').forEach(el => {
+                    const id = el.id.replace('card-', '');
+                    if (usedMap[id] === true) el.classList.add('used');
+                    else el.classList.remove('used');
+                });
+                statusEl.innerText = '● 同步模式：已更新狀態';
+            } catch (e) { statusEl.innerText = '● 連線異常'; }
+        }
+        async function toggleRemoteStatus(id) {
+            const el = document.getElementById('card-' + id);
+            const isUsed = !el.classList.contains('used');
+            if (isUsed) el.classList.add('used'); else el.classList.remove('used');
+            try {
+                await fetch(GAS_URL, { method: 'POST', body: JSON.stringify({ id: id, status: isUsed }) });
+                fetchSync();
+            } catch (e) { alert('更新失敗！'); fetchSync(); }
+        }
+        document.addEventListener('DOMContentLoaded', fetchSync);
+        function zoom(src) { document.getElementById('zoomImg').src = src; document.getElementById('overlay').style.display = 'flex'; }
+    </script>
+</body>
+</html>
