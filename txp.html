@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>商品卡餘額監控</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #0f172a;
+            --accent: #f59e0b;
+            --danger: #ef4444;
+            --success: #10b981;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+        }
+        * { box-sizing: border-box; font-family: 'Noto Sans TC', sans-serif; }
+        body { background: var(--bg); color: var(--secondary); margin: 0; padding: 20px; display: flex; justify-content: center; }
+        .wrapper { width: 100%; max-width: 700px; }
+        
+         
+        header { 
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white; padding: 30px; border-radius: 20px; text-align: center;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); margin-bottom: 25px;
+        }
+        header h1 { margin: 0; font-weight: 900; font-size: 1.8rem; letter-spacing: -1px; }
+        header .update-tag { font-size: 0.8rem; opacity: 0.7; margin-top: 10px; display: block; }
+        
+         
+        .total-box {
+            background: white; padding: 20px; border-radius: 15px; display: flex; 
+            justify-content: space-between; align-items: center; margin-bottom: 20px;
+            border-left: 6px solid var(--primary); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+        .total-box span { font-weight: bold; font-size: 1.1rem; }
+        .total-box .total-val { color: var(--primary); font-size: 1.6rem; }
+
+         
+        .card-list { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        table { width: 100%; border-collapse: collapse; }
+        thead { background: #f1f5f9; }
+        th { padding: 15px; font-size: 0.85rem; color: #64748b; text-transform: uppercase; text-align: left; }
+        td { padding: 16px 15px; border-bottom: 1px solid #f1f5f9; vertical-align: middle; }
+        
+         
+        .item-name { font-weight: 700; color: #1e293b; display: block; line-height: 1.2; }
+        .balance-label { 
+            background: #fee2e2; color: var(--danger); font-weight: 900;
+            padding: 4px 10px; border-radius: 99px; font-size: 0.9rem;
+        }
+
+         
+        .btn-use {
+            background: linear-gradient(to bottom right, #3b82f6, #2563eb);
+            color: white; border: none; padding: 10px 18px; border-radius: 10px;
+            font-weight: bold; cursor: pointer; transition: 0.2s; font-size: 0.85rem;
+        }
+        .btn-use:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(37,99,235,0.3); }
+        .row-used { background-color: #f8fafc; opacity: 0.5; }
+        .row-used td { text-decoration: none; }
+
+         
+        #modalOverlay { 
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: rgba(15,23,42,0.9); z-index: 1000; backdrop-filter: blur(5px);
+        }
+        #modalContainer {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 95%; max-width: 500px; height: 85vh; background: white; border-radius: 24px;
+            overflow: hidden; display: flex; flex-direction: column;
+        }
+        #modalHeader { padding: 15px; background: #fff; border-bottom: 1px solid #eee; display: flex; justify-content: flex-end; }
+        #closeBtn { background: #f1f5f9; border: none; padding: 8px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; }
+        iframe { flex: 1; border: none; width: 100%; }
+
+        @media (max-width: 480px) {
+            header { padding: 20px; }
+            td, th { padding: 12px 10px; }
+            .btn-use { padding: 8px 12px; }
+        }
+    </style>
+    <script>
+        function openVoucher(url, id) {
+            const row = document.getElementById('row-' + id);
+            const btn = document.getElementById('btn-' + id);
+            row.classList.add('row-used');
+            btn.innerText = '使用中';
+            btn.style.background = '#94a3b8';
+            
+            document.getElementById('voucherIframe').src = url;
+            document.getElementById('modalOverlay').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        function closeVoucher() {
+            document.getElementById('modalOverlay').style.display = 'none';
+            document.getElementById('voucherIframe').src = '';
+            document.body.style.overflow = 'auto';
+        }
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>💰 商品卡餘額總覽</h1>
+            <span class="update-tag">最後同步時間：2026-01-26 11:57</span>
+        </header>
+
+        <div class="total-box">
+            <span>有效卡片總餘額</span>
+            <span class="total-val">-2 單位</span>
+        </div>
+
+        <div class="card-list">
+            <table>
+                <thead>
+                    <tr>
+                        <th width="10%">#</th>
+                        <th width="50%">品項名稱</th>
+                        <th width="20%">餘額</th>
+                        <th width="20%">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr id="row-1">
+                        <td>1</td>
+                        <td><span class="item-name">Mister Donut 感謝有你雙倍打氣 雙人午茶組合好禮即享券</span></td>
+                        <td><span class="balance-label">9223372036854775807</span></td>
+                        <td><button id="btn-1" class="btn-use" onclick="openVoucher('https:\/\/txp.rs\/viewvoucher.aspx?voucherguid=1069f9ab-abdf-4e1c-8f0d-eb21974ef91d', '1')">使用</button></td>
+                    </tr>
+                    
+                    <tr id="row-2">
+                        <td>2</td>
+                        <td><span class="item-name">麥當勞薯條(小)即享券</span></td>
+                        <td><span class="balance-label">9223372036854775807</span></td>
+                        <td><button id="btn-2" class="btn-use" onclick="openVoucher('https:\/\/txp.rs\/viewvoucher.aspx?voucherguid=33ab5035-eea4-429e-93cf-b3cf5a220a91', '2')">使用</button></td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="modalOverlay" onclick="if(event.target == this) closeVoucher()">
+        <div id="modalContainer">
+            <div id="modalHeader"><button id="closeBtn" onclick="closeVoucher()">關閉視窗</button></div>
+            <iframe id="voucherIframe" src=""></iframe>
+        </div>
+    </div>
+</body>
+</html>
